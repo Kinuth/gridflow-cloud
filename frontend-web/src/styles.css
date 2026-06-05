@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#0B0F12] text-slate-100 antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0B0F12;
+}
+::-webkit-scrollbar-thumb {
+  background: #1E293B;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #283548;
+}
+
+/* Pulsing Status Animations */
+@keyframes pulse-emerald {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+  }
+  50% {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+  }
+}
+
+@keyframes pulse-amber {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4);
+  }
+  50% {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 8px rgba(245, 158, 11, 0);
+  }
+}
+
+@keyframes pulse-red {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
+  }
+  50% {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 8px rgba(239, 68, 68, 0);
+  }
+}
+
+.pulse-active-emerald {
+  animation: pulse-emerald 2s infinite ease-in-out;
+}
+
+.pulse-active-amber {
+  animation: pulse-amber 2s infinite ease-in-out;
+}
+
+.pulse-active-red {
+  animation: pulse-red 2s infinite ease-in-out;
+}
+
+/* Animated flow lines for hybrid system diagram */
+@keyframes flow-forward {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+@keyframes flow-backward {
+  to {
+    stroke-dashoffset: 20;
+  }
+}
+
+.flow-line {
+  stroke-dasharray: 6, 4;
+}
+
+.flow-forward {
+  animation: flow-forward 1.2s infinite linear;
+}
+
+.flow-backward {
+  animation: flow-backward 1.2s infinite linear;
+}
+
+.flow-none {
+  stroke-dasharray: none;
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: rgba(30, 41, 59, 0.45);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-panel-heavy {
+  background: rgba(18, 24, 29, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}

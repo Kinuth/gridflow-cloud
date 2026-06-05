@@ -1,0 +1,36 @@
+# Python virtual environment
+venv/
+.venv/
+env/
+.env/
+
+# Python compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Django / backend settings and SQLite
+db.sqlite3
+staticfiles/
+backend/.env
+.env
+.env.*
+
+# Node / React dependencies and builds
+node_modules/
+dist/
+build/
+.parcel-cache/
+.eslintcache/
+test-results/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db

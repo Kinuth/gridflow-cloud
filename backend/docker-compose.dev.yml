@@ -1,0 +1,35 @@
+# =============================================================================
+# GridFlow Cloud — Local Development Services
+# =============================================================================
+# Spins up PostgreSQL (TimescaleDB) and Redis for local dev.
+# Your Django app runs natively on the host, not inside Docker.
+#
+# Usage:
+#   docker compose -f docker-compose.dev.yml up -d
+#   docker compose -f docker-compose.dev.yml down
+#
+# NOTE: Using port 5433 to avoid conflict with any native PostgreSQL on 5432.
+
+services:
+  db:
+    image: timescale/timescaledb:latest-pg16
+    container_name: gridflow-db
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: gridflow
+      POSTGRES_USER: gridflow
+      POSTGRES_PASSWORD: gridflow
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: gridflow-redis
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+
+volumes:
+  pgdata:
